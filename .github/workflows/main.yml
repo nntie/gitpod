@@ -1,0 +1,14 @@
+name: Check CPU Info on macOS
+
+on: [push]
+
+jobs:
+  check_cpu:
+    runs-on: macos-latest
+    steps:
+      - name: Check CPU Info
+        run: |
+          echo "CPU Info:"
+          sysctl -n machdep.cpu.brand_string
+          echo "Detailed CPU Info:"
+          sysctl -a | grep cpu
